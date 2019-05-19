@@ -51,15 +51,29 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate {
             
         itemView.titleLabel.text = item.Title
             
-        itemView.topInfoLabel.text = "Year: " + item.Year + ", Runtime: " + item.Runtime + "\nGenre: " + item.Genre
-            
+        itemView.topInfoLabel.text = #"""
+        Year: \#(item.Year), Runtime: \#(item.Runtime)
+        Genre: \#(item.Genre)
+        """#
+        
         var ratingString = "Ratings:\n"
         for i in 0..<item.Ratings.count {
             ratingString += "\(item.Ratings[i].Source): \(item.Ratings[i].Value)\n"
         }
         itemView.ratingLabel.text = ratingString
-            
-        itemView.otherInfoLabel.text = "Released: " + item.Released + "\nRated: " + item.Rated + "\n\nPlot: " + item.Plot + "\n\nActors: " + item.Actors + "\n\nDirector: " + item.Director + "\nWriter: " + item.Writer
+        
+        itemView.otherInfoLabel.text = #"""
+        Released: \#(item.Released)
+        Rated: \#(item.Rated)
+        
+        Plot: \#(item.Plot)
+        
+        Actors: \#(item.Actors)
+        
+        Director: \#(item.Director)
+        Writer: \#(item.Writer)
+        """#
+        
         
         scrollView.contentInset = .init(top: 0, left: 0, bottom: itemView.contentHeight, right: 0)
         scrollView.addSubview(itemView)
